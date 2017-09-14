@@ -12,11 +12,28 @@ class DetailViewController: UIViewController {
 
       @IBOutlet weak var ImgView: UIImageView!
       
-      var title_name: String?
+      var title_name = ""
       
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = title_name
+        print(title_name)
+      
+      
+      
+//      ---------------------------------------------------------
+      switch title_name {
+      case "DIT 동의과학대학교":
+            ImgView.image = UIImage(named: "img_dit.jpg")
+      case "부산시민공원":
+            ImgView.image = UIImage(named: "ditLogo.jpg")
+      default:
+            print("default : \(title_name)")
+      }
+      
+      
+      
+      
+
         // Do any additional setup after loading the view.
     }
 

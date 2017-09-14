@@ -12,6 +12,7 @@ import MapKit
 class ViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var myMapView: MKMapView!
 
+      var titleName = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -81,8 +82,15 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,calloutAccessoryControlTapped control: UIControl) {
 
+      
+      let viewAnno = view.annotation
+      let viewTitle = ((viewAnno?.title)!)!
+      titleName = viewTitle
+      
+      
       if control == view.rightCalloutAccessoryView {
          self.performSegue(withIdentifier: "goDetail", sender: self )
+            
             
       }
       
@@ -95,8 +103,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
       
 //        print("callout Accessory Tapped!")
 //      
-//        let viewAnno = view.annotation
-//        let viewTitle = ((viewAnno?.title)!)!
+      
 //        let viewSubTitile = ((viewAnno?.subtitle)!)!
 //      
 //      print("\(viewTitle) \(viewSubTitile)")
@@ -119,5 +126,16 @@ class ViewController: UIViewController, MKMapViewDelegate {
       
       
     }
+      
+      
+      
+      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "goDetail" {
+                  let detailVC = segue.destination as! DetailViewController
+                  detailVC.title_name = titleName
+            }
+      }
+      
+
 }
 
