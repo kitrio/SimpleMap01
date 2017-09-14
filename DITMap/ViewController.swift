@@ -79,12 +79,17 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
     }
     
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,calloutAccessoryControlTapped control: UIControl) {
 
       if control == view.rightCalloutAccessoryView {
-            self.performSegue(withIdentifier: "goDetail", sender: self )
-            self.
+         self.performSegue(withIdentifier: "goDetail", sender: self )
+            
       }
+      
+      
+      
+      
+      
       
       
       
@@ -114,7 +119,5 @@ class ViewController: UIViewController, MKMapViewDelegate {
       
       
     }
-      
-
 }
 

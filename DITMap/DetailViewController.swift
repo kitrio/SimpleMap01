@@ -12,9 +12,11 @@ class DetailViewController: UIViewController {
 
       @IBOutlet weak var ImgView: UIImageView!
       
+      var title_name: String?
+      
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = title_name
         // Do any additional setup after loading the view.
     }
 
